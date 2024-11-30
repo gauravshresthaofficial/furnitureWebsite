@@ -23,33 +23,43 @@ const NavBar = () => {
         };
     }, []);
 
+    const navLinks = [
+        { path: "/", label: "Home" },
+        { path: "/shop", label: "Shop" },
+        { path: "/aboutus", label: "About Us" },
+        { path: "/blog", label: "Blog" }
+    ];
+
     return (
         <div
             className={`flex justify-between px-16 h-24 z-10 w-screen items-center fixed top-0 left-0 transition-all duration-300 ${isScrolled
-                ? "bg-white shadow-md text-slate-900"
-                : "text-white"
+                ? isHomePage
+                    ? "bg-white shadow-md text-slate-900"
+                    : "text-gray-900 bg-white"
+                : isHomePage
+                    ? "text-white"
+                    : "text-gray-900"
                 }`}
             style={{
                 "--underline-color": isScrolled
                     ? "black"
-                    : "white",
+                    : isHomePage
+                        ? "white"
+                        : "black",
             }}
         >
             {/* Left Section */}
-            <div className="flex gap-6 font-sans font-semibold text-lg ">
-                <p className={`mr-6 font-extrabold italic ${isScrolled ? "text-slate-500" : "text-slate-200"}`}>soudemy</p>
-                <Link to="/" className="nav-link">
-                    Home
-                </Link>
-                <Link to="/shop" className="nav-link">
-                    Shop
-                </Link>
-                <Link to="/aboutus" className="nav-link">
-                    About Us
-                </Link>
-                <Link to="/blog" className="nav-link">
-                    Blog
-                </Link>
+            <div className="flex gap-6 font-sans text-lg ">
+                <p className={`mr-6 font-extrabold italic ${isScrolled ? isHomePage ? "text-slate-500" : "text-slate-700" : isHomePage ? "text-slate-200" : "text-gray-500"}`}>soudemy</p>
+                {navLinks.map((link) => (
+                    <Link
+                        key={link.path}
+                        to={link.path}
+                        className={`nav-link ${location.pathname === link.path ? "font-bold" : ""}`}
+                    >
+                        {link.label}
+                    </Link>
+                ))}
             </div>
 
             {/* Right Section */}

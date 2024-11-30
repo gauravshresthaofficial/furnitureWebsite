@@ -5,12 +5,14 @@ import Footer from './Footer'
 
 const Layout = () => {
     return (
-        <div className="min-h-screen max-w-screen overflow-x-hidden">
+        <div className="min-h-screen max-w-screen flex flex-col">
             <Navbar />
-            <Outlet />
-            <Footer/>
+            <main className="flex-grow">
+                <Outlet />
+            </main>
+            <Footer />
         </div>
-    )
-}
+    );
+};
 
 export default Layout
