@@ -8,7 +8,7 @@ const Home = () => {
     return (
         <div>
             {/* Hero Section */}
-            <div className="min-h-dvh py-24 pr-16 pl-24 bg-hero-pattern bg-cover bg-center bg-no-repeat flex items-center justify-center">
+            <div className="min-h-dvh py-24 pr-16 pl-24 bg-hero-pattern bg-cover bg-center bg-no-repeat flex items-center justify-center w-full">
                 <div className="flex flex-col items-center gap-6 text-white">
                     <h1 className="text-5xl font-bold capitalize">All for your home</h1>
                     <p className="w-[30dvw] text-center text-lg">
@@ -139,7 +139,7 @@ const Home = () => {
             </div>
 
 
-            <div className="h-scteen w-screen py-24 space-y-24 flex flex-col">
+            <div className="h-screen w-screen py-24 space-y-24 flex flex-col">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-10 max-w-6xl px-16 mx-auto text-slate-600">
                     <div className="space-y-3">
                         <div className="flex items-center justify-between">
@@ -182,6 +182,8 @@ const Home = () => {
                     </div>
                 </div>
 
+
+                {/* blog section */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-24 max-w-6xl px-16 w-full mx-auto grow">
                     <div className="flex flex-col justify-center items-center gap-2 text-slate-800">
                         <img

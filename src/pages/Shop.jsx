@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const productDetails = [
   { img: "/chair.png", productName: "Modern Sofa 1", rating: 4, price: 73, color: "Black", category: "Modern" },
@@ -22,6 +23,8 @@ const Shop = () => {
   const [selectedColor, setSelectedColor] = useState("All");
   const [priceRange, setPriceRange] = useState([0, 150]);
   const [searchTerm, setSearchTerm] = useState("");
+
+  const navigate = useNavigate();
 
   const productsPerPage = 6;
 
@@ -118,7 +121,8 @@ const Shop = () => {
           {currentProducts.map((product, index) => (
             <div
               key={index}
-              className="hover:opacity-80 duration-100"
+              onClick={() => navigate(`/shop/${index}`)}
+              className="hover:opacity-80 duration-100 justify-items-center space-y-4"
             >
               <img
                 src={product.img}
@@ -126,7 +130,9 @@ const Shop = () => {
                 className="w-full object-cover mb-2"
               />
               <h3 className="text-lg font-medium">{product.productName}</h3>
-              <p className="text-gray-500">Rating: {product.rating} ⭐</p>
+              <p className="text-gray-500">
+                Rating: {Array(product.rating).fill("⭐").join(" ")}
+              </p>
               <p className="text-red-600 font-semibold">${product.price}</p>
             </div>
           ))}

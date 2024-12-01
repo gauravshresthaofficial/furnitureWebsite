@@ -8,6 +8,7 @@ const NavBar = () => {
     const location = useLocation();
     const isHomePage = location.pathname === "/";
     const [isScrolled, setIsScrolled] = useState(false);
+    // { console.log(location.pathname.split("/")[1]) }
 
     useEffect(() => {
         const handleScroll = () => {
@@ -35,10 +36,10 @@ const NavBar = () => {
             className={`flex justify-between px-16 h-24 z-10 w-screen items-center fixed top-0 left-0 transition-all duration-300 ${isScrolled
                 ? isHomePage
                     ? "bg-white shadow-md text-slate-900"
-                    : "text-gray-900 bg-white"
+                    : "text-gray-900 bg-white shadow-md"
                 : isHomePage
                     ? "text-white"
-                    : "text-gray-900"
+                    : "text-gray-900 bg-white"
                 }`}
             style={{
                 "--underline-color": isScrolled
@@ -55,7 +56,13 @@ const NavBar = () => {
                     <Link
                         key={link.path}
                         to={link.path}
-                        className={`nav-link ${location.pathname === link.path ? "font-bold" : ""}`}
+                        className={`nav-link ${
+                            location.pathname === link.path || 
+                            (link.path !== "/" && location.pathname.startsWith(link.path))
+                              ? "font-bold"
+                              : ""
+                          }`}
+                          
                     >
                         {link.label}
                     </Link>
