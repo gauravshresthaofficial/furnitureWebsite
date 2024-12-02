@@ -6,7 +6,7 @@ import About from './pages/About'
 import Blog from './pages/Blog'
 import Home from './pages/Home'
 import NotFound from './pages/NotFound'
-import ProductDetails from './components/productDetails'
+import ProductPage from './components/ProductPage'
 
 const App = () => {
   return (
@@ -15,7 +15,7 @@ const App = () => {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path='shop' element={<Shop />} />
-          <Route path="shop/:id" element={<ProductDetails />} />
+          <Route path="shop/:id" element={<ProductPage />} />
           <Route path='aboutus' element={<About />} />
           <Route path='blog' element={<Blog />} />
           <Route path="*" element={<NotFound />} />

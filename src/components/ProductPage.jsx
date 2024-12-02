@@ -14,7 +14,7 @@ const productDetails = [
     { img: "/chair.png", productName: "Modern Sofa 9", rating: 5, price: 89, color: "Red", category: "Ceiling" },
 ];
 
-const ProductDetails = () => {
+const ProductPage = () => {
 
     const navigate = useNavigate();
     return (
@@ -99,4 +99,4 @@ const ProductDetails = () => {
     )
 }
 
-export default ProductDetails
+export default ProductPage
