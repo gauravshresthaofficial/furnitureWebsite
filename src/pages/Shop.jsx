@@ -156,8 +156,7 @@ const Shop = () => {
       </div>
 
       {/* Sidebar */}
-      <div className="col-span-2 p-4">
-        <h2 className="font-semibold text-lg mb-4">Search</h2>
+      <div className="col-span-2 p-4 pt-0">
         <input
           type="text"
           className="w-full mb-6 p-2 border focus:ring-1 ring-gray-600 outline-0 hover:ring-1"
