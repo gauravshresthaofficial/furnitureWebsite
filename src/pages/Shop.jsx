@@ -1,17 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
-const productDetails = [
-  { img: "/chair.png", productName: "Modern Sofa 1", rating: 4, price: 73, color: "Black", category: "Modern" },
-  { img: "/chair.png", productName: "Modern Sofa 2", rating: 5, price: 85, color: "Blue", category: "Retro" },
-  { img: "/chair.png", productName: "Modern Sofa 3", rating: 3, price: 50, color: "Red", category: "Wood" },
-  { img: "/chair.png", productName: "Modern Sofa 4", rating: 4, price: 120, color: "Green", category: "LED" },
-  { img: "/chair.png", productName: "Modern Sofa 5", rating: 5, price: 60, color: "Yellow", category: "Modern" },
-  { img: "/chair.png", productName: "Modern Sofa 6", rating: 2, price: 95, color: "Grey", category: "Floor" },
-  { img: "/chair.png", productName: "Modern Sofa 7", rating: 4, price: 45, color: "Blue", category: "Retro" },
-  { img: "/chair.png", productName: "Modern Sofa 8", rating: 4, price: 77, color: "Black", category: "Modern" },
-  { img: "/chair.png", productName: "Modern Sofa 9", rating: 5, price: 89, color: "Red", category: "Ceiling" },
-];
+import productDetails from "../data/productData";
 
 const categories = ["All", "Ceiling", "Floor", "LED", "Modern", "Retro", "Wood"];
 const colors = ["All", "Black", "Blue", "Red", "Green", "Yellow", "Grey"];

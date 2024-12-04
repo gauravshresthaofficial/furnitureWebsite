@@ -2,13 +2,19 @@ import React, { useState, useEffect } from "react";
 import { BiShoppingBag } from "react-icons/bi";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoSearch } from "react-icons/io5";
+import { RxCross2 } from "react-icons/rx";
 import { Link, useLocation } from "react-router-dom";
 
 const NavBar = () => {
     const location = useLocation();
     const isHomePage = location.pathname === "/";
     const [isScrolled, setIsScrolled] = useState(false);
+    const [searchActive, setSearchActive] = useState(false)
     // { console.log(location.pathname.split("/")[1]) }
+
+    const handleSearchActive = () => {
+        setSearchActive(!searchActive)
+    }
 
     useEffect(() => {
         const handleScroll = () => {
@@ -56,24 +62,30 @@ const NavBar = () => {
                     <Link
                         key={link.path}
                         to={link.path}
-                        className={`nav-link ${
-                            location.pathname === link.path || 
+                        className={`nav-link ${location.pathname === link.path ||
                             (link.path !== "/" && location.pathname.startsWith(link.path))
-                              ? "font-bold"
-                              : ""
-                          }`}
-                          
+                            ? "font-bold"
+                            : ""
+                            }`}
+
                     >
                         {link.label}
                     </Link>
                 ))}
             </div>
 
+
             {/* Right Section */}
             <div className="flex items-center gap-10">
-                <IoSearch className="h-6 w-6 cursor-pointer hover:scale-105 hover:opacity-80" />
+                {searchActive ?
+                    <div className="w-80 flex justify-between items-center px-2 bg-white rounded-md">
+                        <input className="w-80 px-4 py-2 ring-0 outline-0 text-gray-900" placeholder="Search"></input>
+                        <RxCross2 className="h-6 text-gray-500 w-6 cursor-pointer hover:scale-105 hover:text-gray-700" onClick={handleSearchActive}/>
+                    </div> :
+                    <IoSearch className="h-6 w-6 cursor-pointer hover:scale-105 hover:opacity-80" onClick={handleSearchActive} />
+                }
                 <BiShoppingBag className="h-6 w-6 cursor-pointer hover:scale-105 hover:opacity-80" />
-                <GiHamburgerMenu className="h-6 w-6 cursor-pointer hover:scale-105 hover:opacity-80" />
+                {/* <GiHamburgerMenu className="h-6 w-6 cursor-pointer hover:scale-105 hover:opacity-80" /> */}
             </div>
         </div>
     );

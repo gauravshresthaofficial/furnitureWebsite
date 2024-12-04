@@ -1,10 +1,63 @@
-import React from "react";
+import React, { useState } from "react";
 import { PiClockThin, PiCreditCardThin, PiHandbagThin, PiKeyReturnThin, PiLessThanThin } from "react-icons/pi";
 import Button from "../components/Button";
 import { BiSolidQuoteAltLeft } from "react-icons/bi";
 import arrowRight from '/arrow-right.png'
+import { useNavigate } from "react-router-dom";
+import mockBlogs from "../data/blogData";
+import testimonialData from "../data/testimonialData";
+
+const LastBlogCard = ({ blog }) => {
+    const navigate = useNavigate()
+    // console.log(blog);
+    // console.log(1);
+
+    return (
+
+        <div className="flex flex-col justify-center items-center gap-2 text-slate-800">
+            <div className="relative w-full aspect-square">
+                <img
+                    src={blog.image}
+                    alt={blog.title}
+                    className="absolute inset-0 w-full h-full object-cover"
+                />
+            </div>
+            <p className="text-slate-400 font-light text-sm">
+                {blog.date} / by {blog.author}
+            </p>
+            <h3 className="capitalize text-lg font-bold text-center">
+                {blog.title}
+            </h3>
+            <button
+                className="underline underline-offset-4 opacity-65 hover:opacity-100 hover:scale-105 cursor-pointer duration-100"
+                onClick={() => navigate(`/blog/${blog.id}`)}
+            >
+                read more
+            </button>
+        </div>
+    )
+}
 
 const Home = () => {
+    const navigate = useNavigate()
+    const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
+
+    const nextTestimonial = () => {
+        // Go to next testimonial, looping back to the start if at the last one
+        setCurrentTestimonialIndex((prevIndex) => (prevIndex + 1) % testimonialData.length);
+    };
+
+    const prevTestimonial = () => {
+        // Go to previous testimonial, looping back to the last one if at the first
+        setCurrentTestimonialIndex(
+            (prevIndex) => (prevIndex - 1 + testimonialData.length) % testimonialData.length
+        );
+    };
+
+    const handleViewMore = () => {
+        navigate('/shop'); // This will correctly navigate to the /shop page
+    }
+
     return (
         <div className="space-y-12">
             {/* Hero Section */}
@@ -15,7 +68,7 @@ const Home = () => {
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Consequat
                         dolor odio odio malesuada at condimentum adipiscing iaculis semper.
                     </p>
-                    <Button />
+                    <Button onClick={handleViewMore} />
                 </div>
             </div>
 
@@ -75,7 +128,7 @@ const Home = () => {
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Consequat
                             dolor odio odio malesuada at condimentum adipiscing iaculis semper.
                         </p>
-                        <Button className="text-white" />
+                        <Button className="text-white" onClick={handleViewMore} />
                     </div>
                 </div>
 
@@ -95,7 +148,7 @@ const Home = () => {
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Consequat
                             dolor odio odio malesuada at condimentum adipiscing iaculis semper.
                         </p>
-                        <Button className="text-black border-black" />
+                        <Button className="text-black border-black" onClick={handleViewMore} />
                     </div>
 
                     <img src="/chair.png" alt="" className="w-[40%] h-auto text-center" />
@@ -109,7 +162,7 @@ const Home = () => {
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Consequat
                             dolor odio odio malesuada at condimentum adipiscing iaculis semper.
                         </p>
-                        <Button className="text-black border-black" />
+                        <Button className="text-black border-black" onClick={handleViewMore} />
                     </div>
 
 
@@ -121,7 +174,7 @@ const Home = () => {
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Consequat
                             dolor odio odio malesuada at condimentum adipiscing iaculis semper.
                         </p>
-                        <Button className="text-black border-black" />
+                        <Button className="text-black border-black" onClick={handleViewMore} />
                     </div>
 
                     <img src="/c_lamp.png" alt="" className="w-[40%] h-auto text-center" />
@@ -135,7 +188,7 @@ const Home = () => {
                         express delivery in 24h !
                     </span>
                 </h2>
-                <Button className="border-black" />
+                <Button className="border-black" onClick={handleViewMore} />
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-10 max-w-6xl px-16 mx-auto text-slate-600">
@@ -179,47 +232,53 @@ const Home = () => {
                     </p>
                 </div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-24 max-w-6xl px-16 w-full mx-auto grow">
-                <div className="flex flex-col justify-center items-center gap-2 text-slate-800">
-                    <img
-                        src="/soldimage.png"
-                        alt="Chair"
-                        className="h-96 w-full object-cover"
-                    />
-                    <p className="text-slate-400 font-light text-sm">29 sep,2022 / by soroush norozy</p>
-                    <h3 className="text-lg font-bold text-center">Your office should have only <br />natural materials</h3>
-                    <button className="underline underline-offset-4 opacity-65 hover:opacity-100 hover:scale-105 cursor-pointer duration-100">read more</button>
-                </div>
-                <div className="flex flex-col justify-center items-center gap-2 text-slate-800">
-                    <img
-                        src="/soldimage.png"
-                        alt="Chair"
-                        className="h-96 w-full object-cover"
-                    />
-                    <p className="text-slate-400 font-light text-sm">29 sep,2022 / by soroush norozy</p>
-                    <h3 className="text-lg font-bold text-center">Your office should have only <br />natural materials</h3>
-                    <button className="underline underline-offset-4 opacity-65 hover:opacity-100 hover:scale-105 cursor-pointer duration-100">read more</button>
-                </div>
-
-            </div>
-
 
             {/* blog section */}
-            <div className="bg-slate-300 h-80 w-full flex justify-between px-16">
-                <div className="flex justify-center items-center">
-                    <img src={arrowRight} alt="" className="h-10 hover:scale-110 duration-100" />
-                </div>
-                <div className="flex flex-col items-center justify-center max-w-xl">
-                    <BiSolidQuoteAltLeft className="mb-6 h-8 w-auto" />
-                    <p className="text-slate-500 font-light text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tellus vitae congue id ipsum sed neque et dui accumsan. Nibh semper magna facilisi ridiculus luctus amet. Aliquam </p>
-                    <h3 className="text-lg font-bold text-center mt-4">Soroush norozy </h3>
-                    <p className="text-sm">Designer</p>
-                </div>
-                <div className="flex justify-center items-center">
-                    <img src={arrowRight} alt="" className="rotate-180 h-10 hover:scale-110 duration-100" />
-                </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-24 max-w-6xl px-16 w-full mx-auto grow">
+                {mockBlogs.slice(0, 2).map((blog) => (
+                    <LastBlogCard key={blog.id} blog={blog} />
+                ))}
+
 
             </div>
+
+
+
+            {/* Testimonial Section */}
+            <div className="bg-slate-300 h-80 w-full flex justify-between px-16">
+                {/* Left Arrow */}
+                <div className="flex justify-center items-center">
+                    <img
+                        src={arrowRight}
+                        alt="Left Arrow"
+                        className="h-10 hover:scale-110 duration-100 cursor-pointer"
+                        onClick={prevTestimonial}
+                    />
+                </div>
+
+                {/* Testimonial Content */}
+                <div className="flex flex-col items-center justify-center max-w-xl">
+                    <BiSolidQuoteAltLeft className="mb-6 h-8 w-auto" />
+                    <p className="text-slate-500 font-light text-center">
+                        {testimonialData[currentTestimonialIndex].quote}
+                    </p>
+                    <h3 className="text-lg font-bold text-center mt-4">
+                        {testimonialData[currentTestimonialIndex].name}
+                    </h3>
+                    <p className="text-sm">{testimonialData[currentTestimonialIndex].role}</p>
+                </div>
+
+                {/* Right Arrow */}
+                <div className="flex justify-center items-center">
+                    <img
+                        src={arrowRight}
+                        alt="Right Arrow"
+                        className="rotate-180 h-10 hover:scale-110 duration-100 cursor-pointer"
+                        onClick={nextTestimonial}
+                    />
+                </div>
+            </div>
+
 
 
         </div >
