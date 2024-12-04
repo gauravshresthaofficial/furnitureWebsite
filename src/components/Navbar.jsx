@@ -78,7 +78,7 @@ const NavBar = () => {
             {/* Right Section */}
             <div className="flex items-center gap-10">
                 {searchActive ?
-                    <div className="w-80 flex justify-between items-center px-2 bg-white rounded-md">
+                    <div className="w-80 flex justify-between items-center px-2 border-2 bg-white border-slate-300 rounded-md">
                         <input className="w-80 px-4 py-2 ring-0 outline-0 text-gray-900" placeholder="Search"></input>
                         <RxCross2 className="h-6 text-gray-500 w-6 cursor-pointer hover:scale-105 hover:text-gray-700" onClick={handleSearchActive}/>
                     </div> :
