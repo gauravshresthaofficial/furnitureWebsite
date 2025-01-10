@@ -84,7 +84,7 @@ const Shop = () => {
   };
 
   return (
-    <div className="grid grid-cols-8 min-h-screen w-full mt-24 p-16 pt-6 gap-10" ref={mainContentRef}>
+    <div className="gap-10 grid grid-cols-8 mt-24 p-16 pt-6 w-full min-h-screen" ref={mainContentRef}>
       {/* Main Content */}
       <div className="col-span-6">
         {/* Header */}
@@ -106,23 +106,23 @@ const Shop = () => {
         </div>
 
         {/* Product Grid */}
-        <div className="grid grid-cols-3 gap-12">
+        <div className="gap-12 grid grid-cols-3">
           {currentProducts.map((product, index) => (
             <div
-              key={index}
-              onClick={() => navigate(`/shop/${index}`)}
-              className="hover:opacity-80 duration-100 justify-items-center space-y-4"
+              key={index + 1}
+              onClick={() => navigate(`/shop/${index + 1}`)}
+              className="justify-items-center space-y-4 hover:opacity-80 duration-100"
             >
               <img
                 src={product.img}
                 alt={product.productName}
-                className="w-full object-cover mb-2"
+                className="mb-2 w-full object-cover"
               />
-              <h3 className="text-lg font-medium">{product.productName}</h3>
+              <h3 className="font-medium text-lg">{product.productName}</h3>
               <p className="text-gray-500">
                 Rating: {Array(product.rating).fill("⭐").join(" ")}
               </p>
-              <p className="text-red-600 font-semibold">${product.price}</p>
+              <p className="font-semibold text-red-600">${product.price}</p>
             </div>
           ))}
         </div>
@@ -148,13 +148,13 @@ const Shop = () => {
       <div className="col-span-2 p-4 pt-0">
         <input
           type="text"
-          className="w-full mb-6 p-2 border focus:ring-1 ring-gray-600 outline-0 hover:ring-1"
+          className="mb-6 p-2 border ring-gray-600 hover:ring-1 focus:ring-1 w-full outline-0"
           placeholder="Search products..."
           value={searchTerm}
           onChange={handleSearchChange}
         />
 
-        <h2 className="font-semibold text-lg mb-4">Category</h2>
+        <h2 className="mb-4 font-semibold text-lg">Category</h2>
         <ul className="mb-6">
           {categories.map((category, index) => (
             <li
@@ -168,7 +168,7 @@ const Shop = () => {
           ))}
         </ul>
 
-        <h2 className="font-semibold text-lg mb-4">Color</h2>
+        <h2 className="mb-4 font-semibold text-lg">Color</h2>
         <ul className="mb-6">
           {colors.map((color, index) => (
             <li
@@ -182,7 +182,7 @@ const Shop = () => {
           ))}
         </ul>
 
-        <h2 className="font-semibold text-lg mb-4">Price</h2>
+        <h2 className="mb-4 font-semibold text-lg">Price</h2>
         <div className="flex flex-col">
           <input
             type="range"
@@ -191,7 +191,7 @@ const Shop = () => {
             step={1}
             value={priceRange[1]}
             onChange={handlePriceChange}
-            className="w-full mb-2"
+            className="mb-2 w-full"
           />
           <div className="flex justify-between">
             <span>$0</span>

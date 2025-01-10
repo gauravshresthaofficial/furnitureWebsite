@@ -7,7 +7,7 @@ export default {
         sans: ["PT Sans", "sans-serif"],
       },
       backgroundImage: {
-        "hero-pattern": "url('/herobackground.png')",
+        "hero-pattern": "url('/webp/herobackground.webp')",
       },
     },
   },
