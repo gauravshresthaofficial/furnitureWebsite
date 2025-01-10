@@ -1,7 +1,7 @@
 const productDetails = [
     {
       id: 1,
-      img: "/chair.png",
+      img: "/webp/chair.webp",
       productName: "Modern Sofa 1",
       rating: 4,
       price: 73,
@@ -13,7 +13,7 @@ const productDetails = [
     },
     {
       id: 2,
-      img: "/chair.png",
+      img: "/webp/chair.webp",
       productName: "Modern Sofa 2",
       rating: 5,
       price: 85,
@@ -25,7 +25,7 @@ const productDetails = [
     },
     {
       id: 3,
-      img: "/chair.png",
+      img: "/webp/chair.webp",
       productName: "Modern Sofa 3",
       rating: 3,
       price: 50,
@@ -37,7 +37,7 @@ const productDetails = [
     },
     {
       id: 4,
-      img: "/chair.png",
+      img: "/webp/chair.webp",
       productName: "Modern Sofa 4",
       rating: 4,
       price: 120,
@@ -49,7 +49,7 @@ const productDetails = [
     },
     {
       id: 5,
-      img: "/chair.png",
+      img: "/webp/chair.webp",
       productName: "Modern Sofa 5",
       rating: 5,
       price: 60,
@@ -61,7 +61,7 @@ const productDetails = [
     },
     {
       id: 6,
-      img: "/chair.png",
+      img: "/webp/chair.webp",
       productName: "Modern Sofa 6",
       rating: 2,
       price: 95,
@@ -73,7 +73,7 @@ const productDetails = [
     },
     {
       id: 7,
-      img: "/chair.png",
+      img: "/webp/chair.webp",
       productName: "Modern Sofa 7",
       rating: 4,
       price: 45,
@@ -85,7 +85,7 @@ const productDetails = [
     },
     {
       id: 8,
-      img: "/chair.png",
+      img: "/webp/chair.webp",
       productName: "Modern Sofa 8",
       rating: 4,
       price: 77,
@@ -97,7 +97,7 @@ const productDetails = [
     },
     {
       id: 9,
-      img: "/chair.png",
+      img: "/webp/chair.webp",
       productName: "Modern Sofa 9",
       rating: 5,
       price: 89,
