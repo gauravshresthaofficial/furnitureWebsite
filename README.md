@@ -41,3 +41,6 @@ Follow these steps to run the project locally:
    npm run dev
 
 3. **Open your browser and visit the development server link displayed in the terminal (usually http://localhost:5173)**:
+
+## Live View 
+https://furniture-website-khaki-one.vercel.app/
